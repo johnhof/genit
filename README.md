@@ -2,6 +2,8 @@
 
 Generator based utility belt
 
+[![Build Status](https://travis-ci.org/fleekjs/genome.svg?branch=master)](https://travis-ci.org/fleekjs/genome)
+
 # DO NOT USE. STILL IN PRE-PRODUCTION
 
 # Contributing
