@@ -2,7 +2,7 @@
 
 Generator based utility belt
 
-[![Build Status](https://travis-ci.org/fleekjs/genome.svg?branch=master)](https://travis-ci.org/fleekjs/genome) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genome/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.org/fleekjs/genome.svg?branch=master)](https://travis-ci.org/fleekjs/genome) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genome/blob/master/LICENSE)  [![Dependencies](https://img.shields.io/david/fleekjs/genome.svg)](https://david-dm.org/fleekjs/genome)
 
 # DO NOT USE. STILL IN PRE-PRODUCTION
 
