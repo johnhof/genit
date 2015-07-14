@@ -136,3 +136,7 @@ console.log(result); // => false
 let result = yield genome.isGenerator(function *() {});
 console.log(result); // => true
 ```
+
+# Authors
+
+- John Hofrichter
