@@ -11,7 +11,7 @@ function onErr (done) {
 }
 
 describe('synchronous', function () {
-  describe('each', function () {
+  describe('.each', function () {
     it('should iterate arrays', function (done) {
       co(function *() {
         let array  = ['one', 'two', 'three', 'four'];
@@ -74,7 +74,7 @@ describe('synchronous', function () {
   });
 
 
-  describe('map', function () {
+  describe('.map', function () {
     it('should iterate arrays', function (done) {
       co(function *() {
         let array  = ['one', 'two', 'three', 'four'];

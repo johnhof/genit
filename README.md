@@ -29,6 +29,8 @@ refer to `each` and `map` for examples
     - [Mixed](#mixed-asynchronous)
     - [Array](#array-asynchronous)
     - [Object](#object-asynchronous)
+  - [Miscellaneous](#miscellaneous)
+    -  [isGenerator](#isgenerator)
 
 # Utilities
 
@@ -48,7 +50,7 @@ refer to `each` and `map` for examples
   - Undefined
 
 ```javascript
-genome.each([one, two, three], function (value, index) {
+yield genome.each([one, two, three], function *(value, index) {
   console.log(index + ' = ' + this + ' ~ ' + value);
 });
 // console:
@@ -56,7 +58,7 @@ genome.each([one, two, three], function (value, index) {
 // 2 = two ~ two
 // 3 = three ~ three
 
-genome.each({ one:'foo', two:'bar', three:'biz' }, function (value, key) {
+yield genome.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
 });
 // console:
@@ -73,12 +75,12 @@ genome.each({ one:'foo', two:'bar', three:'biz' }, function (value, key) {
 - Functionality
   - Iterates over every item in the collection (objec tor array)
   - Executes the operation on each item
-  - Returned value is added to the resulting arrau
+  - Returned value is added to the resulting array
 - Returns
   - Array of values returned
 
 ```javascript
-let result = genome.each(['one', 'two', 'three'], function (value, index) {
+let result = yield genome.each(['one', 'two', 'three'], function *(value, index) {
   console.log(index + ' = ' + this + ' ~ ' + value);
   return index * 2;
 });
@@ -90,7 +92,7 @@ console.log(result);
 // console:
 // [0, 1, 2]
 
-let result = genome.each({ one:'foo', two:'bar', three:'biz' }, function (value, key) {
+let result = yield genome.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
   return value;
 });
@@ -114,3 +116,23 @@ console.log(result);
 ### Array Synchronous
 
 ### Object Synchronous
+
+## Miscellaneous
+
+#### `isGenerator`
+
+
+- Parameters
+  - [Required] [Mixed] - object to type check
+- Functionality
+  - Test whether or not a function is a generator
+- Returns
+  - Boolean of generator status
+
+```javascript
+let result = yield genome.isGenerator(function () {});
+console.log(result); // => false
+
+let result = yield genome.isGenerator(function *() {});
+console.log(result); // => true
+```

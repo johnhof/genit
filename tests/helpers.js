@@ -13,7 +13,7 @@ function onErr (done) {
 
 describe('helpers', function () {
 
-  describe('for', function () {
+  describe('.for', function () {
 
     it('should iterate arrays', function (done) {
       co(function *() {
