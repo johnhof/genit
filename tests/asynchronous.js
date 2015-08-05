@@ -3,7 +3,7 @@
 let mocha   = require('mocha');
 let expect  = require('chai').expect;
 let co      = require('co');
-let genome  = require('../lib/genome');
+let genit  = require('../lib/genit');
 
 function onErr (done) {
   return function (e) {
@@ -35,7 +35,7 @@ return; // Ignore until full support exists
       }
       co(function *() {
         let execSet = [timeoutTest(1, 10000), timeoutTest(2, 1), timeoutTest(3, 1)];
-        yield genome.parallel(execSet);
+        yield genit.parallel(execSet);
         console.log(result);
 
         done();

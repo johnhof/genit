@@ -1,10 +1,10 @@
-# genome
+# genit
 
 Generator based utility belt
 
-[![Build Status](https://travis-ci.org/fleekjs/genome.svg?branch=master)](https://travis-ci.org/fleekjs/genome) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genome/blob/master/LICENSE)  [![Dependencies](https://img.shields.io/david/fleekjs/genome.svg)](https://david-dm.org/fleekjs/genome)
+[![Build Status](https://travis-ci.org/fleekjs/genit.svg?branch=master)](https://travis-ci.org/fleekjs/genit) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genit/blob/master/LICENSE)  [![Dependencies](https://img.shields.io/david/fleekjs/genit.svg)](https://david-dm.org/fleekjs/genit)
 
-`$ npm install genome`
+`$ npm install genit`
 
 # Key
 
@@ -29,9 +29,9 @@ Generator based utility belt
 ```javascript
   'use strict'
 
-  let genome  = require('genome');
+  let genit  = require('genit');
   let fooFunc = function *(someSet) {
-    return yield genome.map(someSet, function *(value, index) {
+    return yield genit.map(someSet, function *(value, index) {
       return yield someGeneratorFunction('foo', 'bar', value);  
     });
   }
@@ -43,14 +43,14 @@ Generator based utility belt
   'use strict'
 
   let _       = require('lodash');
-  let genome  = require('genome');
+  let genit  = require('genit');
 
-  genome.inject(lodash);
+  genit.inject(lodash);
 
   _.each(someSet, function () { }); //existing
   _.isGenerator(mightBeAGenerator) // injected
   function *() {
-    return yield _.genome.map(someSet, function *(value, index) {  }); // injected to .genome property (name collision)
+    return yield _.genit.map(someSet, function *(value, index) {  }); // injected to .genit property (name collision)
   }
 ```
 
@@ -73,7 +73,7 @@ Generator based utility belt
   - Undefined
 
 ```javascript
-yield genome.each([one, two, three], function *(value, index) {
+yield genit.each([one, two, three], function *(value, index) {
   console.log(index + ' = ' + this + ' ~ ' + value);
 });
 // console:
@@ -81,7 +81,7 @@ yield genome.each([one, two, three], function *(value, index) {
 // 2 = two ~ two
 // 3 = three ~ three
 
-yield genome.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
+yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
 });
 // console:
@@ -103,7 +103,7 @@ yield genome.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) 
   - Array of values returned
 
 ```javascript
-let result = yield genome.each(['one', 'two', 'three'], function *(value, index) {
+let result = yield genit.each(['one', 'two', 'three'], function *(value, index) {
   console.log(index + ' = ' + this + ' ~ ' + value);
   return index * 2;
 });
@@ -115,7 +115,7 @@ console.log(result);
 // console:
 // [0, 1, 2]
 
-let result = yield genome.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
+let result = yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
   return value;
 });
@@ -144,10 +144,10 @@ console.log(result);
   - Boolean of generator status
 
 ```javascript
-let result = yield genome.isGenerator(function () {});
+let result = yield genit.isGenerator(function () {});
 console.log(result); // => false
 
-let result = yield genome.isGenerator(function *() {});
+let result = yield genit.isGenerator(function *() {});
 console.log(result); // => true
 ```
 
@@ -157,7 +157,7 @@ console.log(result); // => true
   - [Required] [Object] - object to inject properties to
 - Functionality
   - Inject properties into target Object
-  - Collision in property name move genome property to the `.genome` property
+  - Collision in property name move genit property to the `.genit` property
 - Returns
   - target object with injected properties
 
@@ -165,13 +165,13 @@ console.log(result); // => true
   'use strict'
 
   let test   = { each : function () { return 'Original Each'; } };
-  let genome = require('genome');
+  let genit = require('genit');
 
-  genome.inject(test);
+  genit.inject(test);
 
   console.log(test.each()); // => "Original Each"
   console.log(test.isGenerator(function () {})) // => "false"
-  console.log(test.isGenerator(test.genome.each)) // => "true"
+  console.log(test.isGenerator(test.genit.each)) // => "true"
    ```
 
 # Authors

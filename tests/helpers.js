@@ -3,7 +3,7 @@
 let mocha   = require('mocha');
 let expect  = require('chai').expect;
 let co      = require('co');
-let genome  = require('../lib/genome');
+let genit  = require('../lib/genit');
 let helpers = require('../lib/helpers');
 
 function onErr (done) {
