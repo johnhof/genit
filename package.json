@@ -1,13 +1,13 @@
 {
-  "name": "genome",
+  "name": "genit",
   "version": "1.0.0",
   "description": "Generator based utility belt",
-  "main": "lib/genome.js",
+  "main": "lib/genit.js",
   "scripts": {
     "test": "mocha ./tests/* --compilers js:mocha-traceur "
   },
   "keywords": [
-    "genome",
+    "genit",
     "generator",
     "utility"
   ],

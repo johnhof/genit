@@ -3,7 +3,7 @@
 let mocha   = require('mocha');
 let expect  = require('chai').expect;
 let co      = require('co');
-let genome  = require('../lib/genome');
+let genit  = require('../lib/genit');
 
 function onErr (done) {
   return function (e) {
@@ -19,7 +19,7 @@ describe('synchronous', function () {
         let array  = ['one', 'two', 'three', 'four'];
         let count  = 0;
         let length = array.length;
-        yield genome.each(array, function *(value, index) {
+        yield genit.each(array, function *(value, index) {
           expect(value).to.be.equal(array[count]);
           expect(this).to.be.equal(array[count]);
           expect(index).to.be.equal(count);
@@ -35,7 +35,7 @@ describe('synchronous', function () {
         let count  = 0;
         let keys   = Object.keys(obj);
         let length = keys.length
-        yield genome.each(obj, function *(value, key) {
+        yield genit.each(obj, function *(value, key) {
           let expectKey = keys[count];
           expect(value).to.be.equal(obj[expectKey]);
           expect(this).to.be.equal(obj[expectKey]);
@@ -52,7 +52,7 @@ describe('synchronous', function () {
         let array  = ['one', 'two', 'three', 'four'];
         let count  = -1;
         let stopAt = 2;
-        yield genome.each(array, function *(value, index) {
+        yield genit.each(array, function *(value, index) {
           count++;
           return (index < stopAt);
         }, false, true);
@@ -65,7 +65,7 @@ describe('synchronous', function () {
         let obj    = { one:'foo', two:'bar', three:'biz', four:'baz' };
         let count  = -1;
         let stopAt = 'three';
-        yield genome.each(obj, function *(value, key) {
+        yield genit.each(obj, function *(value, key) {
           count++;
           return (key !== stopAt);
         }, false, true);
@@ -82,7 +82,7 @@ describe('synchronous', function () {
         let array  = ['one', 'two', 'three', 'four'];
         let count  = 0;
         let length = array.length;
-        yield genome.map(array, function *(value, index) {
+        yield genit.map(array, function *(value, index) {
           expect(value).to.be.equal(array[count]);
           expect(this).to.be.equal(array[count]);
           expect(index).to.be.equal(count);
@@ -98,7 +98,7 @@ describe('synchronous', function () {
         let count  = 0;
         let keys   = Object.keys(obj);
         let length = keys.length
-        yield genome.map(obj, function *(value, key) {
+        yield genit.map(obj, function *(value, key) {
           let expectKey = keys[count];
           expect(value).to.be.equal(obj[expectKey]);
           expect(this).to.be.equal(obj[expectKey]);
@@ -114,7 +114,7 @@ describe('synchronous', function () {
       co(function *() {
         let array    = ['one', 'two', 'three', 'four'];
         let expected = [1, 2, 3, 4];
-        let result   = yield genome.map(array, function *(value, index) {
+        let result   = yield genit.map(array, function *(value, index) {
           return index + 1;
         }, true);
         expect(result).to.have.members(expected);
@@ -126,7 +126,7 @@ describe('synchronous', function () {
         let obj      = { one:'foo', two:'bar', three:'biz', four:'baz' };
         let expected = [1, 2, 3, 4];
         let count    = 1;
-        let result   = yield genome.map(obj, function *() {
+        let result   = yield genit.map(obj, function *() {
           return count++;
         }, true);
         expect(result).to.have.members(expected);
