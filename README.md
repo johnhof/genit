@@ -45,7 +45,7 @@ Generator based utility belt
   let _       = require('lodash');
   let genit  = require('genit');
 
-  genit.inject(lodash);
+  genit.inject(_);
 
   _.each(someSet, function () { }); //existing
   _.isGenerator(mightBeAGenerator) // injected
