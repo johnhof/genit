@@ -1,3 +1,5 @@
+'use strict'
+
 let mocha   = require('mocha');
 let expect  = require('chai').expect;
 let co      = require('co');
