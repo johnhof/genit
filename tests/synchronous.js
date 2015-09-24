@@ -134,4 +134,32 @@ describe('synchronous', function () {
       }).catch(onErr(done));
     });
   });
+
+  
+  describe('.filter', function () {
+    it('should iterate and filter the array', function (done) {
+      co(function *() {
+        let array  = [1,2,3,4,5,-1,-2,-3];
+        var filteredArray = yield genit.filter(array, function *(n) {
+          return n < 0;
+        });
+        expect(filteredArray).to.eql([-1, -2, -3]);
+        expect(filteredArray.length).to.be.equal(3);
+        done();
+      }).catch(onErr(done));
+    });
+    it('should iterate and filter the objects', function (done) {
+      co(function *() {
+        let obj    = { one:'foo', two:'bar', three:'biz', four:'baz' };
+        let count  = 0;
+        let keys   = Object.keys(obj);
+        let length = keys.length
+        var filteredObject = yield genit.filter(obj, function *(value, key) {
+            return value == "biz" || value == "baz";
+        });
+        expect(filteredObject).to.deep.equal({three : 'biz', four : 'baz'});
+        done();
+      }).catch(onErr(done));
+    });
+  });
 });
