@@ -103,7 +103,20 @@ yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   - Array of values returned
 
 ```javascript
-let result = yield genit.each(['one', 'two', 'three'], function *(value, index) {
+let result = yield genit.filter([-1, -2, -3, 4, 5], function *(value) {
+  return value > 0;
+});
+console.log(result);
+// console:
+// [4,5]
+
+let result = yield genit.filter({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
+  return value == "bliz" || value == "bar";
+});
+console.log(result);
+// console:
+// {two : 'bar', three: 'biz'}
+```
   console.log(index + ' = ' + this + ' ~ ' + value);
   return index * 2;
 });
