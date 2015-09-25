@@ -101,7 +101,6 @@ yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   - Returned value is added to the resulting array
 - Returns
   - Array of values returned
-```
 
 ```javascript
 let result = yield genit.filter([-1, -2, -3, 4, 5], function *(value) {
