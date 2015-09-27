@@ -1,7 +1,8 @@
 {
   "name": "genit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generator based utility belt",
+  "repository": "https://github.com/fleekjs/genit",
   "main": "lib/genit.js",
   "scripts": {
     "test": "mocha ./tests/* --compilers js:mocha-traceur "
