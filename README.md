@@ -31,7 +31,7 @@ Generator based utility belt
 
   let genit  = require('genit');
   let fooFunc = function *(someSet) {
-    return yield genit.map(someSet, function *(value, index) {
+     return yield genit.map(someSet, function *(value, index) {
       return yield someGeneratorFunction('foo', 'bar', value);  
     });
   }
@@ -47,10 +47,10 @@ Generator based utility belt
 
   genit.inject(_);
 
-  _.each(someSet, function () { }); //existing
+  _.each(someSet, function () {  }); //existing
   _.isGenerator(mightBeAGenerator) // injected
-  function *() {
-    return yield _.genit.map(someSet, function *(value, index) {  }); // injected to .genit property (name collision)
+   function *() {
+    return yield _.genit.map(someSet, function *(value, index) {   }); // injected to .genit property (name collision)
   }
 ```
 
@@ -81,7 +81,7 @@ yield genit.each([one, two, three], function *(value, index) {
 // 2 = two ~ two
 // 3 = three ~ three
 
-yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
+yield genit.each({ one:'foo', two:'bar', three:'biz'  }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
 });
 // console:
@@ -89,7 +89,6 @@ yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
 // two = bar ~ bar
 // three = biz ~ biz
 ```
-
 #### `map`
 
 - Parameters
@@ -103,20 +102,7 @@ yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
   - Array of values returned
 
 ```javascript
-let result = yield genit.filter([-1, -2, -3, 4, 5], function *(value) {
-  return value > 0;
-});
-console.log(result);
-// console:
-// [4,5]
-
-let result = yield genit.filter({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
-  return value == "biz" || value == "bar";
-});
-console.log(result);
-// console:
-// {two : 'bar', three: 'biz'}
-```
+let result = yield genit.each(['one', 'two', 'three'], function *(value, index) {
   console.log(index + ' = ' + this + ' ~ ' + value);
   return index * 2;
 });
@@ -128,7 +114,7 @@ console.log(result);
 // console:
 // [0, 1, 2]
 
-let result = yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(value, key) {
+let result = yield genit.each({ one:'foo', two:'bar', three:'biz'  }, function *(value, key) {
   console.log(key + ' = ' + this + ' ~ ' + value);
   return value;
 });
@@ -139,6 +125,34 @@ let result = yield genit.each({ one:'foo', two:'bar', three:'biz' }, function *(
 console.log(result);
 // console:
 // ['foo', 'bar', 'biz']
+```
+
+#### `filter`
+
+- Parameters
+  - [Required] [Mixed] - Collection to operate on,
+  - [Required] [Generator Function] - Operation to perform
+- Functionality
+  - Iterates over every item in the collection (object or array)
+  - Reserve only the item that passed the checking condition
+  - Returned value is added to the resulting array or object
+- Returns
+  - Array or object values returned
+
+```javascript
+let result = yield genit.filter([-1, -2, -3, 4, 5], function *(value) {
+  return value > 0;
+});
+console.log(result);
+// console:
+// [4,5]
+
+let result = yield genit.filter({ one:'foo', two:'bar', three:'biz'  }, function *(value, key) {
+  return value == "biz" || value == "bar";
+});
+console.log(result);
+// console:
+// {two : 'bar', three: 'biz'}
 ```
 
 ## Asynchronous
@@ -175,9 +189,9 @@ console.log(result); // => true
   - target object with injected properties
 
 ```javascript
-  'use strict'
+'use strict'
 
-  let test   = { each : function () { return 'Original Each'; } };
+  let test   = { each : function () { return 'Original Each';  }  };
   let genit = require('genit');
 
   genit.inject(test);
@@ -185,8 +199,9 @@ console.log(result); // => true
   console.log(test.each()); // => "Original Each"
   console.log(test.isGenerator(function () {})) // => "false"
   console.log(test.isGenerator(test.genit.each)) // => "true"
-   ```
+```
 
 # Authors
 
 - John Hofrichter
+- Contributor Lan Nguyen
