@@ -2,7 +2,7 @@
 
 Generator based utility belt
 
-[![Build Status](https://travis-ci.org/fleekjs/genit.svg?branch=master)](https://travis-ci.org/fleekjs/genit) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genit/blob/master/LICENSE)  [![Dependencies](https://img.shields.io/david/fleekjs/genit.svg)](https://david-dm.org/fleekjs/genit)
+[![Build Status](https://travis-ci.org/fleekjs/genit.svg?branch=master)](https://travis-ci.org/fleekjs/genit) [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/fleekjs/genit/blob/master/LICENSE)  [![Dependencies](https://img.shields.io/david/fleekjs/genit.svg)](https://david-dm.org/fleekjs/genit) [![Join the chat at https://gitter.im/fleekjs/genit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fleekjs/genit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 `$ npm install genit`
 
