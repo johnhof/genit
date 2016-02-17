@@ -17,14 +17,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "co": "^4.5.4",
-    "mocha-traceur": "^2.1.0"
+    "co": "^4.5.4"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
-    "co": "^4.6.0",
-    "lodash": "^3.10.1",
-    "mocha": "^2.2.5",
-    "mocha-traceur": "^2.1.0"
+    "chai": "^3.5.0",
+    "lodash": "^4.5.0",
+    "mocha": "^2.4.5",
+    "mocha-traceur": "^2.1.0",
+    "traceur": "0.0.102"
   }
 }
