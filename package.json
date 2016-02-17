@@ -1,6 +1,6 @@
 {
   "name": "genit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generator based utility belt",
   "repository": "https://github.com/fleekjs/genit",
   "main": "lib/genit.js",
